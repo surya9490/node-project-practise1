@@ -16,7 +16,7 @@ let db = null ;
 const initializeDbAndServer = async()=>{
     try{
         db = await open({filename:dbPath,driver:sqlite3.Database});
-        app.listen(3000, ()=>{
+        app.listen(process.env.PORT || 3000, ()=>{
             console.log('Server running at http://localhost:3000')
         })
     } catch(error){
@@ -60,7 +60,7 @@ app.post('/login',async(request,response)=>{
             response.send({jwtToken})
         } else {
             response.status(400);
-            respond.send("Invalid password")
+            response.send("Invalid password")
         }
     }
 })

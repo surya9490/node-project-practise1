@@ -3,12 +3,14 @@ const {open} = require("sqlite");
 const sqlite3 = require('sqlite3');
 const path = require('path');
 const dbPath = (__dirname,'user.db');
+const cors = require('cors')
 
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 const { response } = require('express');
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 
 let db = null ;

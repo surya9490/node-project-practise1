@@ -17,3 +17,6 @@ Content-Type: application/json
     "password":"online"
 }
 
+###
+GET http://localhost:3000/
+

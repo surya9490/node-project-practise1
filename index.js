@@ -7,7 +7,6 @@ const cors = require('cors')
 
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
-const { response } = require('express');
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -67,3 +66,9 @@ app.post('/login',async(request,response)=>{
     }
 })
 
+app.get('/',async(request,response)=>{
+    const getUsersData = `
+    SELECT * FROM userData `
+    const fetchedData = await db.all(getUsersData)
+    response.send(fetchedData)
+})
